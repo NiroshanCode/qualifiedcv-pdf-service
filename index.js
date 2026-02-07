@@ -33,8 +33,12 @@ app.post("/generate-pdf", async (req, res) => {
       headless: chromium.headless,
     });
 
-    const page = await browser.newPage();
-    await page.setContent(html, {
+const page = await browser.newPage();
+
+page.setDefaultNavigationTimeout(0);
+page.setDefaultTimeout(0);
+
+await page.setContent(html, {
   waitUntil: "domcontentloaded",
   timeout: 0
 });
