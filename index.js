@@ -6,6 +6,12 @@ const app = express();
 app.use(cors());
 app.use(express.json({ limit: "10mb" }));
 
+app.get("/generate-pdf", (req, res) => {
+  res
+    .status(405)
+    .send("This endpoint accepts POST requests only. Use POST to generate PDF.");
+});
+
 app.post("/generate-pdf", async (req, res) => {
   const { html } = req.body;
 
