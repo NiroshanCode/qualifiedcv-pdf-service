@@ -43,7 +43,7 @@ await page.setContent(html, {
   timeout: 0
 });
 
-await page.waitForTimeout(500);
+await page.waitForTimeout(800);
 
 
     const pdf = await page.pdf({
